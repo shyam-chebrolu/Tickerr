@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tickerr</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+<!--
+    			<link rel="shortcut icon" href="images/favicon.png">
+    			<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
+    		-->
+
+<!-- ionic css -->
+<link href="css/ionic.css" rel="stylesheet" />
+
+<!-- app specific css -->
+<link rel="stylesheet" href="css/main.css" />
+
+<!-- External Framework Javascript files: AngularJS and Ionic -->
+<script src="js/extlib/ionic/ionic.bundle.js"></script>
+<script src="js/extlib/ionic/localforage.js"></script>
+<script src="js/extlib/angular-ui/angular-ui-router.js"></script>
+<script src="js/extlib/angular/angular-localForage.min.js"></script>
+
+<script>
+	window.$ = window.jQuery = WLJQ;
+</script>
+
+</head>
+<body style="display: none;">
+	<!--Placeholder UI goes here-->
+	<div id="applicationLogo"></div>
+	<div id="blur-background">
+		<div id="contentPlaceHolder" data-ui-view class="page-slide"></div>
+	</div>
+
+
+	<!-- Application Framework files -->
+	<script src="js/common/route-state-transition.js"></script>
+	<script src="js/messages.js"></script>
+	<script src="js/initOptions.js"></script>
+	<script src="js/main.js"></script>
+	
+	<!-- Application Routing Configuration -->
+	<script src="js/app.js"></script>
+	
+	<!-- Page specific controllers -->
+	<script src="pages/landing/landing-controller.js"></script>
+	<script src="pages/home/home-controller.js"></script>
+	<script src="pages/majorIndexes/majorIndexes-controller.js"></script>
+	<script src="pages/quotes/quotes-controller.js"></script>
+	<script src="pages/settings/settings-controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+#blur-background, #contentPlaceHolder {
+	height: 100%;
+}
+
+.landingPane {
+	background-color: #387ef5;
+}
+
+.landingPane .spinner {
+	position: relative;
+	top: 45%;
+	left: 45%;
+}
+
+.spinner svg {
+  width: 40px;
+  height: 40px;
+  stroke: #fff;
+  fill: #fff;
+}
+
+.app-footer {
+  border-color: #0c63ee;
+  background-color: #387ef5;
+  background-image: linear-gradient(0deg, #0c63ee, #0c63ee 50%, transparent 50%);
+  color: #fff;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 49px;
+}
+
+#pagePlaceHolder {
+	top: 44px;
+	bottom: 49px;
+	position: relative;
+}
+
+.future-ads {
+	width: 80%;
+}
+.future-ads>div:first-child {
+	border: solid #FFF 1px;
+	margin: 7px 0 0 5px;
+	padding: 2px;
+	border-style: inset;
+}
+.app-footer .tab-nav {
+	width: 20%;
+}
