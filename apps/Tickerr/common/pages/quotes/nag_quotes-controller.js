@@ -28,8 +28,16 @@ theApp.controller('NagQuotesController', function($scope,  $http, $ionicPopup) {
 	
 	$scope.searchMe = function () {
 		var quoteName = $scope.searchQuote;
+		if (!quoteName) {
+			var alertPopup = $ionicPopup.alert({
+			       title: 'Please enter the Quote Name',
+			       template: 'For multiple Quotes use comma seperated names..'
+			 });
+		} else {
+			
 		url =  "http://finance.google.com/finance/info?client=ig&q=" + quoteName;
 		populateData($http, url);
+		}
 	}
 	
 	$scope.confirmPopup = function() {
@@ -51,9 +59,12 @@ theApp.controller('NagQuotesController', function($scope,  $http, $ionicPopup) {
 		var alertPopup = $ionicPopup.alert({
 		       title: 'Under Construction',
 		       template: 'Hello....'
-		     });	
+		 });	
 	}
 	
+	function alertMessage() {
+		
+	}
 	function populateData($http, url) {
 		$http.get(url)
 	  	.success(function(response) {
