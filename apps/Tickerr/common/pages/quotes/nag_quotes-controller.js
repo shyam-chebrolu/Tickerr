@@ -26,6 +26,12 @@ theApp.controller('NagQuotesController', function($scope,  $http, $ionicPopup) {
 		populateData($http, url);
 	}
 	
+	$scope.searchMe = function () {
+		var quoteName = $scope.searchQuote;
+		url =  "http://finance.google.com/finance/info?client=ig&q=" + quoteName;
+		populateData($http, url);
+	}
+	
 	$scope.confirmPopup = function() {
 	     var confirmPopup = $ionicPopup.confirm({
 	         title: 'Confirm Delete',
