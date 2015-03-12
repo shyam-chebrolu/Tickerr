@@ -24,7 +24,7 @@
 <body>
 	<div id="LoginPage" ng-controller="NagQuotesController">
 		<div class="bar bar-header">
-			<button class="button button-assertive rounded">{{appName}}</button>
+			<button class="button button-assertive rounded" ng-click="showAlert()">{{appName}}</button>
 			<a class="item  item-icon-right" href="#"> <i
 				class="icon ion-chatbubble-working"></i>
 			</a> <label class="item item-input"> 
@@ -47,7 +47,7 @@
 		<br> <br> <br> <br>
 		<div class="bar">
 
-			<button class="button button-assertive rounded">{{portfolioId}}</button>
+			<button class="button button-assertive rounded" ng-click="populateQuote('usmarket')">{{portfolioId}}</button>
 
 			<button style="color: black;" class="button-clear ion-refresh"
 				ng-click="showAlert()"></button>

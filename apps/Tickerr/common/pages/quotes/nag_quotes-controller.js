@@ -50,7 +50,7 @@ theApp.controller('NagQuotesController', function($scope,  $http, $ionicPopup) {
 		$scope.showAlert = function() {	
 		var alertPopup = $ionicPopup.alert({
 		       title: 'Under Construction',
-		       template: 'Patience Please ..'
+		       template: 'Hello....'
 		     });	
 	}
 	
