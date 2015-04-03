@@ -2563,7 +2563,7 @@ body, .ionic-body {
   word-wrap: break-word;
   font-size: 14px;
   font-family: "Helvetica Neue", "Roboto", sans-serif;
-  line-height: 20px;
+  line-height: 14px;
   text-rendering: optimizeLegibility;
   -webkit-backface-visibility: hidden;
   -webkit-user-drag: none;
@@ -4624,7 +4624,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
  */
 .item {
   border-color: #ddd;
-  background-color: #fff;
+  background-color: #dfe0e1; <!-- #cdccc5 #f0f0f0; -->
   color: #444;
   position: relative;
   z-index: 2;
@@ -5269,19 +5269,19 @@ a.item-content {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 0;
-  margin-bottom: 20px; }
+  margin-bottom: 1px; }
 
 .list:last-child {
   margin-bottom: 0px; }
   .list:last-child.card {
-    margin-bottom: 40px; }
+    margin-bottom: 5px; }
 
 /**
  * List Header
  * --------------------------------------------------
  */
 .list-header {
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 5px 15px;
   background-color: transparent;
   color: #222;
@@ -5369,7 +5369,7 @@ a.item-content {
 
 .tabs .tab-item .badge.badge-light, .badge.badge-light {
   background-color: #fff;
-  color: #444; }
+  color: #004080; }
 .tabs .tab-item .badge.badge-stable, .badge.badge-stable {
   background-color: #f8f8f8;
   color: #444; }
@@ -5781,11 +5781,11 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   display: block;
   padding-top: 2px;
   padding-left: 0;
-  height: 34px;
+  height: 24px;
   color: #111;
   vertical-align: middle;
   font-size: 14px;
-  line-height: 16px; }
+  line-height: 14px; }
 
 .platform-ios input[type="datetime-local"], .platform-ios input[type="date"], .platform-ios input[type="month"], .platform-ios input[type="time"], .platform-ios input[type="week"], .platform-android input[type="datetime-local"], .platform-android input[type="date"], .platform-android input[type="month"], .platform-android input[type="time"], .platform-android input[type="week"] {
   padding-top: 8px; }
@@ -6919,7 +6919,7 @@ a.button {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 5px;
+  padding: 2px;
   width: 100%; }
 
 .row-wrap {
@@ -7043,6 +7043,7 @@ a.button {
   -moz-flex: 0 0 10%;
   -ms-flex: 0 0 10%;
   flex: 0 0 10%;
+  vertical-align: bottom;
   max-width: 10%; }
 
 .col-20 {
@@ -7586,3 +7587,4 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+  
