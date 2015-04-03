@@ -18,7 +18,6 @@ theApp.controller('IndexesController',function($scope, $ionicSideMenuDelegate, $
 		$.getJSON('https://finance.google.com/finance/info?client=ig&q=INDEXSP:.INX&callback=?',function(response){
 
 			var stockInfo = response[0];
-
 			$('.INXl').prepend(stockInfo.l);
 			$('.INXc').prepend(stockInfo.c);
 			$('.INXltt').prepend(stockInfo.ltt);
