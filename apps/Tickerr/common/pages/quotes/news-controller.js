@@ -1,7 +1,7 @@
 /**
  * 
  */
-theApp.controller('QuotesController',function($scope, $ionicSideMenuDelegate, $ionicModal) {
+theApp.controller('NewsController',function($scope, $ionicSideMenuDelegate, $ionicModal) {
 	
 	$(document).ready(function(){
 
@@ -14,6 +14,7 @@ theApp.controller('QuotesController',function($scope, $ionicSideMenuDelegate, $i
 			$('.AAPLltt').prepend(stockInfo.ltt);
 			$('.AAPLdiv').prepend(stockInfo.div);
 			$('.AAPLyld').prepend(stockInfo.yld);
+
 			});
 		
 		 $.ajax({
@@ -22,7 +23,7 @@ theApp.controller('QuotesController',function($scope, $ionicSideMenuDelegate, $i
 			  success  : function (data) {
 			    if (data.responseData.feed && data.responseData.feed.entries) {
 			      $.each(data.responseData.feed.entries, function (i, e) {
-			    	  $('.StockFeed').prepend("<a href='" + e.link + "' target='_blank'>" + e.title + "</a><br><br>");
+			    	  $('.StockFeed').prepend("<p><a href='" + e.link + "' target='_blank'>" + e.title + "</a></p><br>");
 			      });
 			    }
 			  }
