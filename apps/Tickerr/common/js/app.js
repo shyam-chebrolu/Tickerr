@@ -1,7 +1,7 @@
 /**
  * 
  */
-var theApp = angular.module('theApp', ['ionic','ui.router','LocalForageModule', 'route.state.transition']);
+//var theApp = angular.module('theApp', ['ionic','ui.router','LocalForageModule', 'route.state.transition']);
 
 theApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	
@@ -50,6 +50,7 @@ theApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
 						templateUrl : "pages/quotes/quotes.html",
 						controller : 'QuotesController'
 					})
+<<<<<<< HEAD
 					.state('QUOTES2', {
 						parent: 'HOME',
 						url : "/quotes",
@@ -70,6 +71,14 @@ theApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
 						displayName: "Quotes",
 						templateUrl : "pages/quotes/history.html",
 						controller : 'HistoryController'
+=======
+					.state('NAG_QUOTES', {
+						parent: 'HOME',
+						url : "/nag_quotes",
+						displayName: "Quotes",
+						templateUrl : "pages/quotes/nag_quotes.html",
+						controller : 'NagQuotesController'
+>>>>>>> origin/master
 					})
 					.state('SETTINGS', {
 						parent: 'HOME',
