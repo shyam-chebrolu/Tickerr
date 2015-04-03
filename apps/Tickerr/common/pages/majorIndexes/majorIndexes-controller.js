@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+ 
 /**
  * 
  */
@@ -98,7 +98,7 @@ theApp.controller('IndexesController',function($scope, $ionicSideMenuDelegate, $
 		});
 	
 });
-=======
+/*
 (function() {
 	"use strict";
 	theApp.controller('IndexesController', IndexesController);
@@ -121,4 +121,4 @@ theApp.controller('IndexesController',function($scope, $ionicSideMenuDelegate, $
 		
 	}
 })($);
->>>>>>> origin/master
+*/
