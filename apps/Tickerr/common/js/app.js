@@ -1,7 +1,7 @@
 /**
  * 
  */
-var theApp = angular.module('theApp', ['ionic','ui.router','LocalForageModule', 'route.state.transition']);
+//var theApp = angular.module('theApp', ['ionic','ui.router','LocalForageModule', 'route.state.transition']);
 
 theApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	

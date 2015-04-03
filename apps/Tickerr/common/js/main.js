@@ -1,3 +1,6 @@
+
+var theApp = angular.module('theApp', ['ionic','ui.router','LocalForageModule', 'route.state.transition']);
+
 function wlCommonInit(){
 	// setting Device Height
 	 $("html, body").css("height",$(document).height());
