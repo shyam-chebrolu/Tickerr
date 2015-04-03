@@ -2,6 +2,7 @@
     <wb-module deploy-name="Tickerr">
         <wb-resource deploy-path="/" source-path="/apps/Tickerr/common"/>
         <wb-resource deploy-path="/" source-path="/apps/Tickerr/iphone"/>
+        <wb-resource deploy-path="/" source-path="/apps/Tickerr/android"/>
         <property name="context-root" value="Tickerr"/>
     </wb-module>
 </project-modules>

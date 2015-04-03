@@ -7,6 +7,7 @@ base.iphone=670701784
 base.windowsphone8=1468124612
 common.android=1258977247
 eclipse.preferences.version=1
+encoding//apps/Tickerr/android/css/main.css=UTF-8
 encoding//apps/Tickerr/common/css/main.css=UTF-8
 encoding//apps/Tickerr/common/index.html=ISO-8859-1
 encoding//apps/Tickerr/common/pages/home/home.html=ISO-8859-1
