@@ -54,6 +54,10 @@
 	top: 0px;
 }
 
+.navButton {
+	cursor: pointer;
+}
+
 .text-red {
 	color: red;
 }
