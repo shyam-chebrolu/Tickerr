@@ -6,8 +6,6 @@ theApp.controller('Quotes2Controller',function($scope, $ionicSideMenuDelegate, $
 	$(document).ready(function(){
 
 		var url = "http://query.yahooapis.com/v1/public/yql";
-	    //var symbol = $("#symbol").val();
-		//var symbol = $("MSFT").val();
 	    var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('MSFT')");
 	
 	    $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatables.org/alltables.env")

@@ -43,6 +43,13 @@ theApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
 						templateUrl : "pages/majorIndexes/commodities.html",
 						controller : 'CommoditiesController as vm'
 					})
+					.state('CURRENCIES', {
+						parent: 'HOME',
+						url : "/indexes",
+						displayName: "Currencies",
+						templateUrl : "pages/majorIndexes/currencies.html",
+						controller : 'CurrenciesController as vm'
+					})
 					.state('QUOTES', {
 						parent: 'HOME',
 						url : "/quotes",
@@ -50,7 +57,6 @@ theApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
 						templateUrl : "pages/quotes/quotes.html",
 						controller : 'QuotesController'
 					})
-<<<<<<< HEAD
 					.state('QUOTES2', {
 						parent: 'HOME',
 						url : "/quotes",
@@ -71,14 +77,13 @@ theApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
 						displayName: "Quotes",
 						templateUrl : "pages/quotes/history.html",
 						controller : 'HistoryController'
-=======
+					})
 					.state('NAG_QUOTES', {
 						parent: 'HOME',
 						url : "/nag_quotes",
 						displayName: "Quotes",
 						templateUrl : "pages/quotes/nag_quotes.html",
 						controller : 'NagQuotesController'
->>>>>>> origin/master
 					})
 					.state('SETTINGS', {
 						parent: 'HOME',
