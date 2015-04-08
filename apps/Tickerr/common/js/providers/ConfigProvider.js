@@ -1,8 +1,7 @@
 ConfigProvider = function($q, preferencesProvider) {
 	this._init = false;
 	this._$q = $q;
-    this._tickerServiceUrl = "http://finance.google.com/q";
-	this._devMode = true;
+	this._devMode = false;
 };
 
 ConfigProvider.prototype.init = function() {
@@ -26,9 +25,6 @@ ConfigProvider.prototype.init = function() {
 	return defer;
 };
 
-ConfigProvider.prototype.getTickerServiceUrl = function() {
-    return this._tickerServiceUrl;
-};
 
 ConfigProvider.prototype.isDevMode = function() {
     return this._devMode;

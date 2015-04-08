@@ -1,106 +1,41 @@
 <div>
-
-<div class="tabs tabs-top row">
-  <div class="tab-item col">
-  <a class="tab-item" ui-sref="MAJOR_INDEXES">World Markets</a>
-  </div>
-  <div class="tab-item col">
-  <a class="tab-item" ui-sref="US_INDEXES">US Markets</a>
-  </div>
-
-  <div class="tab-item col">
-  <a class="tab-item"  ui-sref="COMMODITIES">Commodities</a>
-</div>
-
-<div class="list">
-	  <div class="col"><i>&nbsp;</i></div>
-	  <div class="col"><i>&nbsp;</i></div>
-	  <div class="col"><i>&nbsp;</i></div>
-</div>
-
-<div class="row">
-  <div class="col"><i>U.S</i></div>
-</div>
-
-<div class="list">
-  <div class="row item">
-	  <div class="col padding"><i class="text-medium-ticker padding-right">DOW</i></div>
-	  <div class="col"><i class="padding"><img src="images/us.png"></i></div>
-	  <div class="col"><i class="text-medium-index-price text-gray DJIl"></i><br><i class="text-small-last-update text-gray DJIltt"></i></div>
-	  <div class="col"><i class="padding text-red text-medium-ticker-change DJIc"></i></div>
-	  <div class="col-10"><i class="padding"><img src="images/06_arrow2.gif" class="img-stock-select"></i></div>
+	<div
+		class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+		<div class="tabs">
+			<a class="tab-item active" ui-sref="MAJOR_INDEXES"> World Markets </a> 
+			<a class="tab-item" ui-sref="US_INDEXES"> US Markets </a> 
+			<a class="tab-item" ui-sref="COMMODITIES"> Commodities </a>
+		</div>
 	</div>
-  <div class="row item">
-	  <div class="col padding"><i class="text-medium-ticker padding-right">S&P500</i></div>
-	  <div class="col"><i class="padding"><img src="images/us.png"></i></div>
-	  <div class="col"><i class="text-medium-index-price text-gray INXl"></i><br><i class="text-small-last-update text-gray INXltt"></i></div>
-	  <div class="col"><i class="padding text-red text-medium-ticker-change INXc"></i></div>
-	  <div class="col-10"><i class="padding"><img src="images/06_arrow2.gif" class="img-stock-select"></i></div>
+	<div class="has-subheader">
+		<row data-ng-repeat="key in symbolKeys">
+			<div class="row">
+				<div class="col">
+					<i data-ng-bind="key"></i>
+				</div>
+			</div>
+	
+			<div class="list" data-ng-repeat="symbol in symbolValues[key]">
+				<div class="row item">
+					<div class="col padding">
+						<i class="text-medium-ticker padding-right" data-ng-bind="symbol.name"></i>
+					</div>
+					<div class="col">
+						<i class="padding"><img src="images/{{symbol.country}}.png"></i>
+					</div>
+					<div class="col">
+						<i class="text-medium-index-price text-gray" data-ng-bind="symbol.price"></i><br>
+						<i class="text-small-last-update text-gray" data-ng-bind="symbol.lastUpdated"></i>
+					</div>
+					<div class="col">
+						<i class="padding text-red text-medium-ticker-change"></i>
+					</div>
+					<div class="col-10">
+						<i class="padding"><img src="images/06_arrow2.gif"
+							class="img-stock-select"></i>
+					</div>
+				</div>
+			</div>
+		</row>
 	</div>
-  <div class="row item">
-	  <div class="col padding"><i class="text-medium-ticker padding-right">NASDAQ</i></div>
-	  <div class="col"><i class="padding"><img src="images/us.png"></i></div>
-	  <div class="col"><i class="text-medium-index-price text-gray IXICl"></i><br><i class="text-small-last-update text-gray IXICltt"></i></div>
-	  <div class="col"><i class="padding text-green text-medium-ticker-change IXICc"></i></div>
-	  <div class="col-10"><i class="padding"><img src="images/06_arrow2.gif" class="img-stock-select"></i></div>
-	</div>
-</div>
-
-<div class="row">
-  <div class="col"><i>Europe</i></div>
-</div>
-
-<div class="list">
-  <div class="row item">
-	  <div class="col padding"><i class="text-medium-ticker padding-right">FTSE</i></div>
-	  <div class="col"><i class="padding"><img src="images/gb.png"></i></div>
-	  <div class="col"><i class="text-medium-index-price text-gray UKXl"></i><br><i class="text-small-last-update text-gray UKXltt"></i></div>
-	  <div class="col"><i class="padding text-red text-medium-ticker-change UKXc"></i></div>
-	  <div class="col-10"><i class="padding"><img src="images/06_arrow2.gif" class="img-stock-select"></i></div>
-	</div>
-   <div class="row item">
-	  <div class="col padding"><i class="text-medium-ticker padding-right">DAX</i></div>
-	  <div class="col"><i class="padding"><img src="images/de.png"></i></div>
-<div class="col"><i class="text-medium-index-price text-gray DAXl"></i><br><i class="text-small-last-update text-gray padding DAXltt"></i></div>
-	  <div class="col"><i class="padding text-green text-medium-ticker-change DAXc"></i></div>
-	  <div class="col-10"><i class="padding"><img src="images/06_arrow2.gif" class="img-stock-select"></i></div>
-	</div>
-   <div class="row item">
-	  <div class="col padding"><i class="text-medium-ticker padding-right">CAC40</i></div>
-	  <div class="col"><i class="padding"><img src="images/fr.png"></i></div>
-<div class="col"><i class="text-medium-index-price text-gray PX1l"></i><br><i class="text-small-last-update text-gray padding PX1ltt"></i></div>
-	  <div class="col"><i class="padding text-red text-medium-ticker-change PX1c"></i></div>
-	  <div class="col-10"><i class="padding"><img src="images/06_arrow2.gif" class="img-stock-select"></i></div>
-	</div>
-</div>
-
-<div class="row">
-  <div class="col"><i>Asia</i></div>
-</div>
-
-<div class="list">
-  <div class="row item">
-	  <div class="col padding"><i class="text-medium-ticker padding-right">SENSEX</i></div>
-	  <div class="col"><i class="padding"><img src="images/in.png"></i></div>
-	  <div class="col"><i class="text-medium-index-price text-gray SENSEXl"></i><br><i class="text-small-last-update text-gray padding SENSEXltt"></i></div>
-	  <div class="col"><i class="padding text-green text-medium-ticker-chang SENSEXc"></i></div>
-	  <div class="col-10"><i class="padding"><img src="images/06_arrow2.gif" class="img-stock-select"></i></div>
-	</div>
-   <div class="row item">
-	  <div class="col padding"><i class="text-medium-ticker padding-right">NIKKEI</i></div>
-	  <div class="col"><i class="padding"><img src="images/jp.png"></i></div>
-	  <div class="col"><i class="text-medium-index-price text-gray NI225l"></i><br><i class="text-small-last-update text-gray padding NI225ltt"></i></div>
-	  <div class="col"><i class="padding text-green text-medium-ticker-chang NI225c"></i></div>
-	  <div class="col-10"><i class="padding"><img src="images/06_arrow2.gif" class="img-stock-select"></i></div>
-	</div>
-	<div class="row item">
-	  <div class="col padding"><i class="text-medium-ticker padding-right">SHI</i></div>
-	  <div class="col"><i class="padding"><img src="images/cn.png"></i></div>
-	  <div class="col"><i class="text-medium-index-price text-gray 000001l"></i><br><i class="text-small-last-update text-gray padding 000001ltt"></i></div>
-	  <div class="col"><i class="padding text-green text-medium-ticker-chang 000001c"></i></div>
-	  <div class="col-10"><i class="padding"><img src="images/06_arrow2.gif" class="img-stock-select"></i></div>
-	</div>
-</div>
-
-
 </div>

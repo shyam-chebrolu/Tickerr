@@ -6,11 +6,10 @@ BackendService = function(config, $log, $http, $q, busyIndicatorService) {
 	this._busyIndicator = busyIndicatorService;
 };
 
-BackendService.prototype.invokeService = function(serviceData) {
-	var serviceRq = serviceData.clone();
-	var service_data_path = this._applyUrlParameters(serviceRq.getServicePath(), serviceRq.getUrlParams());
+BackendService.prototype.invokeService = function(serviceRq) {
+	var service_data_path = this._applyUrlParameters(serviceRq["serviceDef"].Url, serviceRq["queryParams"]);
 	
-	serviceRq.setServicePath(service_data_path);
+	serviceRq["requestPath"] = service_data_path;
 
 	if (this._config.isDevMode()) {
 		/**
@@ -48,56 +47,54 @@ BackendService.prototype._invokeWLAdapter = function(request) {
 	return deferred.promise;
 };
 
-BackendService.prototype._invokeDataService = function(request) {
+BackendService.prototype._invokeDataService = function(serviceRq) {
 	var self = this;
 	var deferred = self._$q.defer();
 
 	var method = 'GET';
-	var data = request.getData();
-	if (request.getOperation() != null) {
-		method = request.getOperation();
+	var data = serviceRq["data"];
+	if (serviceRq["serviceDef"].Operation) {
+		method = serviceRq["serviceDef"].Operation;
 	}
-	else if (request.getData() != null) {
+	else if (data) {
 		method = 'POST';
 	} 
 
-	var responseType = request.getResponseType();
+	var responseType = serviceRq["serviceDef"].ResponseType;
 	if (responseType == null) {
 		responseType = "json";
 	}
 
-	//var credentials = request.getCredentials();
-	//var authToken = credentials.getAuthToken();
-	var service_url = this._config.getChannelUnitedUrl() + request.getServicePath();
+	var service_url = serviceRq["requestPath"];
 	var service_headers = {
-		//'Authorization' : authToken,
-		'Content-Type' : 'application/json',
-		'Accept' : 'application/json',
+		'Content-Type' : 'text/html',
+		'Accept' : 'text/html',
 	};
-	
+ 
 	var http_request = {
-		method : method,
-		url : service_url,
-		data : data,
-		headers : service_headers,
-		responseType : responseType
-	};
-	
+			method : method,
+			url : service_url,
+			data : data,
+			headers : service_headers,
+			responseType : responseType
+		};
+		
+	//self._$http.defaults.transformResponse.unshift(responseTransform);
 	var doHttp = function() {
 		var startTime = (new Date()).getTime();
-		this._busyIndicator.show();
+		self._busyIndicator.show();
 		self._$http(http_request)
 				.success(
 					function(data, status, headers, config) {
 						self._logger.debug('Service call [{0}] took {1}ms. ', service_url, (new Date().getTime()) - startTime);
-						this._busyIndicator.hide();
+						self._busyIndicator.hide();
 						deferred.resolve(data, status, headers, config);
 				})
 				.error(
 					function(data, status, headers, config) {
 							self._busyIndicator.hide();
 							self._logger.error('Error performing request ['+ service_url + ']');
-							MB.Notifications.showErrorMessage("Failed to connect to Server. Please check your connection");
+							alert("Failed to connect to Server. Please check your connection");
 						});
 	};
 
