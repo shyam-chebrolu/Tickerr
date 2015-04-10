@@ -26,6 +26,7 @@
 		
 		this._quoteService.getMajorIndexes().then(function(result){
 			self._$scope.symbolKeys = Object.keys(result);
+			//alert(JSON.stringify(result));
 			self._$scope.symbolValues = result;
 		});
 	};
