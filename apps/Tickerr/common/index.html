@@ -34,12 +34,15 @@
 		<div id="contentPlaceHolder" data-ui-view class="page-slide"></div>
 	</div>
 
-
 	<!-- Application Framework files -->
 	<script src="js/common/route-state-transition.js"></script>
+	<script src="js/common/constants.js"></script>
+	<script src="js/common/events.js"></script>
+	
 	<script src="js/messages.js"></script>
 	<script src="js/initOptions.js"></script>
 	<script src="js/main.js"></script>
+	
 	
 	<!-- Application Directives -->
 	
@@ -50,14 +53,21 @@
 	<script src="js/providers/providers.js"></script>
 	
 	<!-- Application Services -->
-	<script src="js/services/backendService.js"></script>
-	<script src="js/services/base64Service.js"></script>
-	<script src="js/services/busyIndicatorService.js"></script>
-	<script src="js/services/cacheService.js"></script>
-	<script src="js/services/dataStashService.js"></script>
-	<script src="js/services/portfolioService.js"></script>
-	<script src="js/services/storageService.js"></script>
-	<script src="js/services/services.js"></script>
+	
+	
+	<script src="js/service/common/backendService.js"></script>
+	<script src="js/service/common/base64Service.js"></script>
+	<script src="js/service/common/busyIndicatorService.js"></script>
+	<script src="js/service/common/cacheService.js"></script>
+	<script src="js/service/common/dataStashService.js"></script>
+	<script src="js/service/common/portfolioService.js"></script>
+	<script src="js/service/common/storageService.js"></script>
+	<script src="js/service/common/services.js"></script>
+	
+	<script src="js/service/serviceConfig.js"></script>
+	<script src="js/service/quoteService.js"></script>
+
+	<script src="js/service/services.js"></script>
 
 	<!-- Application Model classes -->
 	<script src="js/model/portfolio.js"></script>
@@ -74,17 +84,11 @@
 	<script src="pages/majorIndexes/commodities-controller.js"></script>
 	<script src="pages/majorIndexes/currencies-controller.js"></script>
 	<script src="pages/portfolio/portfolio-controller.js"></script>
-	<!--  <script src="pages/quotes/quotes-controller.js"></script>
-	<script src="pages/quotes/quotes2-controller.js"></script>
+	<script src="pages/quotes/quotes-controller.js"></script>
+	<!--  <script src="pages/quotes/quotes2-controller.js"></script>
 	<script src="pages/quotes/news-controller.js"></script>
 	<script src="pages/quotes/history-controller.js"></script>-->
 	<script src="pages/settings/settings-controller.js"></script>
-<<<<<<< HEAD
-	<script src="pages/portfolio/portfolio-controller.js"></script>
-=======
-	
-	
->>>>>>> origin/master
 	
 </body>
 </html>

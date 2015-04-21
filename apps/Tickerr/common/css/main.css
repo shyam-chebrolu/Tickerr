@@ -30,8 +30,11 @@
 }
 
 #pagePlaceHolder {
-	top: 0px;
 	bottom: 0px;
+	position: relative;
+}
+
+.has-subheader {
 	position: relative;
 }
 
