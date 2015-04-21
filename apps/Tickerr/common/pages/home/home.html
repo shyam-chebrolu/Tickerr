@@ -5,12 +5,13 @@
   <div  class="col"">
   <label class="item-input-wrapper list">
     <i class="icon ion-ios7-search placeholder-icon"></i>
-    <input type="search" placeholder="Search">
+    <input type="search" placeholder="Search" ng-model="searchTicker">
+    <button class="button button-assertive" ng-click="searchMe()">C</button>
   </label>
   </div>
 </div>
 
-<div id="pagePlaceHolder" data-ui-view has-subheader>
+<div id="pagePlaceHolder" data-ui-view>
 </div> 
 
 <!-- 
