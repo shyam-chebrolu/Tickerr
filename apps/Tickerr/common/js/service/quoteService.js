@@ -189,3 +189,20 @@ QuoteService.prototype._getQuotes = function(requestParams) {
 	
 	return this._backendService.invokeService(request);
 };
+
+/*
+ * Returns News for Ticker Symbol passed
+ * 
+ * @returns
+ */
+QuoteService.prototype.getTickerNews = function(requestParams) {
+	var self = this;
+	var deferred = self._$q.defer();
+			
+	var request = {
+	'serviceDef' : ServiceConfig.QUOTE_NEWS,
+	'queryParams' : requestParams
+	};
+	
+	return this._backendService.invokeService(request);
+};
