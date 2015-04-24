@@ -16,7 +16,7 @@
   <li class="item item-toggle">
      Passcode
      <label class="toggle toggle-positive">
-       <input type="checkbox">
+       <input type="checkbox" ng-model="settings.passcode"  ng-click="saveSettings()">
        <div class="track">
          <div class="handle"></div>
        </div>
@@ -26,7 +26,7 @@
     <li class="item item-toggle">
      Backup & restore
      <label class="toggle toggle-positive">
-       <input type="checkbox">
+       <input type="checkbox" ng-model="settings.backup"  ng-click="saveSettings()">
        <div class="track">
          <div class="handle"></div>
        </div>
@@ -46,7 +46,7 @@
   <li class="item item-toggle">
      Realtime Quotes (Stream)
      <label class="toggle toggle-positive">
-       <input type="checkbox">
+       <input type="checkbox" ng-model="settings.realtime" ng-click="saveSettings()">
        <div class="track">
          <div class="handle"></div>
        </div>
