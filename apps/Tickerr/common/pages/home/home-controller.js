@@ -1,11 +1,3 @@
-/**
- * 
- */
-
-theApp.controller('HomeController',function($scope, $state) {
-
-});
-
 (function() {
 	"use strict";
 	theApp.controller('HomeController', HomeController);
@@ -30,7 +22,8 @@ theApp.controller('HomeController',function($scope, $state) {
 		var self = this;
 		
 		self._dataStashService.setData(self._$scope.ticker);
-		self._$state.go("QUOTES");
+		self._$state.go("QUOTES", null, {reload:true});	
+		
 	};
 	
 })($);
