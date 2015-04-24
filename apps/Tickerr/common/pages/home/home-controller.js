@@ -3,44 +3,30 @@
 	"use strict";
 	theApp.controller('HomeController', HomeController);
 
-	HomeController.$inject = ['$scope', '$state', 'quoteService','$rootScope'];
+	HomeController.$inject = ['$scope', '$state', 'dataStashService', '$rootScope'];
 
-	function HomeController($scope, $state, quoteService, $rootScope) {
-		this._quoteService = quoteService;
+	function HomeController($scope, $state, dataStashService, $rootScope) {
+		this._dataStashService = dataStashService;
 		this._$scope = $scope;
 		this._$state = $state;
 		this._$rootScope = $rootScope;
-		this._$scope.searchMe = angular.bind(this,this.searchMe);
+		this._$scope.showTickerDetails = angular.bind(this, this._showTickerDetails);
+		
 		this._init();
 	}
 	
 	HomeController.prototype._init = function () {
-		this._loadQuote();
+
 	};
 	
-	HomeController.prototype._loadQuote = function () {
+	HomeController.prototype._showTickerDetails = function () {
 		var self = this;
-		//this.searchMe();
-		//alert(this._$scope.search);
-	};
-	
-	HomeController.prototype.searchMe = function () {
-		var quoteName = this._$scope.searchTicker;
-		if (quoteName) {			
-			//url =  "http://finance.google.com/finance/info?client=ig&q=" + quoteName;
-			//populateData($http, url);
-			//Store it in rootScope so it can accessed everywhere.
-			//$rootScope.ticker = quoteName;
-			alert(quoteName);
+		var ticker = self._$scope.ticker;		
+		self._dataStashService.setData(self._$scope.ticker);
+		this._$rootScope.ticker = self._$scope.ticker;
+		if (ticker) {
+		self._$state.go("QUOTES");
 		}
-	}
-	
-//	function populateData($http, url) {
-//		$http.get(url)
-//	  	.success(function(response) {
-//	  		alert(response);
-//	  		})
-//	  	.error(function(response) { $scope.searchTicker = "Error";});
-//	};    
+	};
 	
 })($);

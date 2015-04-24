@@ -78,13 +78,6 @@ theApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
 						templateUrl : "pages/quotes/history.html",
 						controller : 'HistoryController'
 					})
-					.state('NAG_QUOTES', {
-						parent: 'HOME',
-						url : "/nag_quotes",
-						displayName: "Quotes",
-						templateUrl : "pages/quotes/nag_quotes.html",
-						controller : 'NagQuotesController'
-					})
 					.state('SETTINGS', {
 						parent: 'HOME',
 						url : "/settings",
@@ -106,8 +99,7 @@ theApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
 						templateUrl : "pages/test/portfolio2.html",
 						controller : 'Portfolio2Controller'
 					})
-					
-}]);
+		}]);
  
 theApp.run(['$state', function($state) {
 

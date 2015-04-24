@@ -1,4 +1,4 @@
-angular.module('app', ['ngResource']);
+angular.module('theApp', ['ngResource']);
 
 function AppCtrl($scope, $resource) {
     

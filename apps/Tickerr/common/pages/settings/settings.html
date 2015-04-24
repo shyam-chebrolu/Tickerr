@@ -1,4 +1,4 @@
-<div ng-controller="SettingsController">
+<div>
 
 <div class="row">
 	  <div class="col"><i>&nbsp;</i></div>
@@ -46,7 +46,7 @@
   <li class="item item-toggle">
      Realtime Quotes (Stream)
      <label class="toggle toggle-positive">
-       <input type="checkbox" ng-model="chkRTQuote" >
+       <input type="checkbox" ng-click='saveSettings()' ng-model="chkRealtimeQuotes">
        <div class="track">
          <div class="handle"></div>
        </div>
@@ -102,8 +102,13 @@
        </div>
      </label>
   </li>  
-  
+   
 </ul>
 </div>	
+
+<!-- <div class="col">-->
+<!--	<input type="hidden" placeholder="Search" ng-model="ticker" />-->
+<!--	<button class="button button-calm" ng-click="saveSettings()">Save Settings</button>-->
+<!-- </div> -->
 
 </div>

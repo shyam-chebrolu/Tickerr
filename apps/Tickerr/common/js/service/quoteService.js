@@ -372,76 +372,76 @@ QuoteService.prototype.getPortfolio = function() {
 	return deferred.promise;
 };
 
-/**
- * Returns latest figures for Ticker
- * 
- * @returns
- */
-QuoteService.prototype.getTicker = function(requestTicker) {
-	var self = this;
-	var deferred = self._$q.defer();
-	
-	//Declare the different categories of indexes
-	var symbolsTicker =[requestTicker];
-	
-	//Merge them into a single array
-	var allSymbols = symbolsTicker;
-	
-	//Invoke the Finance Web service  
-	this._getQuotes(requestTicker).then(function(data) {
-		
-										//Declare result object
-										var result = {
-												"Quote": []
-										};
-										
-										//Check whether service returned any data
-										if (data) {
-											var symbolMap = {requestTicker: {
-													"name": requestTicker,
-													"country": "us",
-										            "desc": "Whatever"
-												}};
-											
-											//Iterate through list of quotes from response data
-											$.each(data, function(index, quote) {
-
-												/**
-												 * Below logic is specific Google Finance Web service.
-												 * If we switch to Yahoo or some other web service, below code block 
-												 * needs to be updated accordingly
-												 * 
-												 */
-												
-												//Prepare the key and look it up in the symbol map 
-												var key = quote["t"];
-												var symbol = symbolMap[key];
-												
-												//Clone the symbol object to return 
-												var item = $.extend({}, symbol);
-												
-												//Map price/change/updatedDate from response
-												item = $.extend({
-													"price": quote["l"],
-													"change": quote["c"],
-													"lastUpdated": quote["ltt"]
-												}, item);
-												
-												//Check the key in symbol map and add it to result array
-												if (symbolsTicker.indexOf(key) >= 0) {
-													result["Quote"].push(item);
-												} 
-											});
-										}
-										
-										//return the result to caller i.e. controller
-										return deferred.resolve(result);	
-									}, function(error) {
-											console.log("Failed to retrieve Ticker, " + error);
-									});
-	
-	return deferred.promise;
-};
+///**
+// * Returns latest figures for Ticker
+// * 
+// * @returns
+// */
+//QuoteService.prototype.getTicker = function(requestTicker) {
+//	var self = this;
+//	var deferred = self._$q.defer();
+//	
+//	//Declare the different categories of indexes
+//	var symbolsTicker =[requestTicker];
+//	
+//	//Merge them into a single array
+//	var allSymbols = symbolsTicker;
+//	
+//	//Invoke the Finance Web service  
+//	this._getQuotes(requestTicker).then(function(data) {
+//		
+//										//Declare result object
+//										var result = {
+//												"Quote": []
+//										};
+//										
+//										//Check whether service returned any data
+//										if (data) {
+//											var symbolMap = {requestTicker: {
+//													"name": requestTicker,
+//													"country": "us",
+//										            "desc": "Whatever"
+//												}};
+//											
+//											//Iterate through list of quotes from response data
+//											$.each(data, function(index, quote) {
+//
+//												/**
+//												 * Below logic is specific Google Finance Web service.
+//												 * If we switch to Yahoo or some other web service, below code block 
+//												 * needs to be updated accordingly
+//												 * 
+//												 */
+//												
+//												//Prepare the key and look it up in the symbol map 
+//												var key = quote["t"];
+//												var symbol = symbolMap[key];
+//												
+//												//Clone the symbol object to return 
+//												var item = $.extend({}, symbol);
+//												
+//												//Map price/change/updatedDate from response
+//												item = $.extend({
+//													"price": quote["l"],
+//													"change": quote["c"],
+//													"lastUpdated": quote["ltt"]
+//												}, item);
+//												
+//												//Check the key in symbol map and add it to result array
+//												if (symbolsTicker.indexOf(key) >= 0) {
+//													result["Quote"].push(item);
+//												} 
+//											});
+//										}
+//										
+//										//return the result to caller i.e. controller
+//										return deferred.resolve(result);	
+//									}, function(error) {
+//											console.log("Failed to retrieve Ticker, " + error);
+//									});
+//	
+//	return deferred.promise;
+//};
 
 /**
  * Returns Currency Symbols Map
@@ -576,6 +576,7 @@ QuoteService.prototype.getQuotes = function(requestParams) {
 
 				//Map price/change/updatedDate from response
 				var item = {
+					"name": quote["t"],
 					"price": quote["l"],
 					"change": quote["c"],
 					"lastUpdated": quote["ltt"]

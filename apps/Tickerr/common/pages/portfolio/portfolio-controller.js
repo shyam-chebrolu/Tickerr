@@ -1,42 +1,38 @@
-/**
- * 
- */
-theApp.controller('PortfolioController',function($scope, $ionicSideMenuDelegate, $ionicModal) {
+(function() {
+	"use strict";
+	theApp.controller('PortfolioController', PortfolioController);
+
+	PortfolioController.$inject = ['$scope', '$state', 'quoteService','dataStashService', '$rootScope'];
+
+	function PortfolioController($scope, $state, quoteService, dataStashService, $rootScope) {
+		this._quoteService = quoteService;
+		this._$scope = $scope;
+		this._$state = $state;
+		this._dataStashService = dataStashService;	
+		this._$scope.showTickerDetails = angular.bind(this, this._showTickerDetails);
+		this._init();
+	}
 	
-	$(document).ready(function(){
-
-		$.getJSON('https://finance.google.com/finance/info?client=ig&q=NYSE:AAPL&callback=?',function(response){
-
-		var stockInfo = response[0];
-
-		$('.AAPLl').prepend(stockInfo.l);
-		$('.AAPLc').prepend(stockInfo.c);
-		$('.AAPLltt').prepend(stockInfo.ltt);
-
-		});
-		
-		$.getJSON('https://finance.google.com/finance/info?client=ig&q=NYSE:MSFT&callback=?',function(response){
-
-			var stockInfo = response[0];
-
-			$('.MSFTl').prepend(stockInfo.l);
-			$('.MSFTc').prepend(stockInfo.c);
-			$('.MSFTltt').prepend(stockInfo.ltt);
-
-			});
-		
-		$.getJSON('https://finance.google.com/finance/info?client=ig&q=NYSE:GOOG&callback=?',function(response){
-
-			var stockInfo = response[0];
-
-			$('.GOOGl').prepend(stockInfo.l);
-			$('.GOOGc').prepend(stockInfo.c);
-			$('.GOOGltt').prepend(stockInfo.ltt);
-
-			});
-		
-
-		});
+	PortfolioController.prototype._init = function () {
+		this._loadPortfolio();
+	};
 	
-});
+	PortfolioController.prototype._loadPortfolio = function () {
+		var self = this;
+		
+		this._quoteService.getPortfolio().then(function(result){
+			self._$scope.symbolKeys = Object.keys(result);
+			self._$scope.symbolValues = result;
+		});
+	};
+	
+	PortfolioController.prototype._showTickerDetails = function () {
+		var self = this;
+		
+		self._dataStashService.setData(self._$scope.ticker);
+		this._$rootScope.ticker = self._$scope.ticker;
+		self._$state.go("QUOTES");
+	};
+	
+})($);
 

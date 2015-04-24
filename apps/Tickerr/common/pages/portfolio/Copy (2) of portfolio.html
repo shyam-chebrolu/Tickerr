@@ -1,0 +1,42 @@
+<div>
+	<div
+		class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+		<div class="tabs">
+			<a class="tab-item" ui-sref="MAJOR_INDEXES"> World Markets </a> 
+			<a class="tab-item" ui-sref="US_INDEXES"> US Markets </a> 
+			<a class="tab-item" ui-sref="CURRENCIES"> Currencies </a>
+		</div>
+	</div>
+	<div class="has-subheader">
+		<row data-ng-repeat="key in symbolKeys">
+			<div class="row">
+				<div class="col">
+					<i data-ng-bind="key"></i>
+				</div>
+			</div>
+	
+			<div class="list" data-ng-repeat="symbol in symbolValues[key]">
+				<div class="row item">
+					<div class="col padding">
+						<i class="text-medium-ticker padding-right" data-ng-bind="symbol.name"></i><br>
+						<i class="text-small-last-update text-gray" data-ng-bind="symbol.desc"></i>
+					</div>
+					<div class="col">
+						<i class="padding"><img src="images/{{symbol.country}}.png"></i>
+					</div>
+					<div class="col">
+						<i class="text-medium-index-price text-gray" data-ng-bind="symbol.price"></i><br>
+						<i class="text-small-last-update text-gray" data-ng-bind="symbol.lastUpdated"></i>
+					</div>
+					<div class="col">
+						<i class="padding text-red text-medium-ticker-change" data-ng-bind="symbol.change"></i>
+					</div>
+					<div class="col-10">
+						<a class="padding" ui-sref="QUOTES"><img src="images/06_arrow2.gif"
+							class="img-stock-select"></a>
+					</div>
+				</div>
+			</div>
+		</row>
+	</div>
+</div>
