@@ -10,6 +10,7 @@ ServiceConfig = {
 		QUOTE_PRICES: {
 			Url: "https://finance.google.com/finance/info?client=ig&q={0}&callback=?JSON_CALLBACK",
 			Operation: "JSONP"
+<<<<<<< HEAD
 		},		
 		QUOTE_PRICES2: {
 			Url: "http://query.yahooapis.com/v1/public/yql?q=select * from yahoo.finance.quotes where symbol in ('{0}')&format=json&diagnostics=true&env=http://datatables.org/alltables.env",
@@ -17,3 +18,14 @@ ServiceConfig = {
 		}
 		
 }
+=======
+		},
+
+		QUOTE_NEWS: {
+			Url: "https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q={0}",
+			Operation: "GET"
+		}
+		
+		
+}
+>>>>>>> 5b635c44bcf8f46232c71290a1349b31e2104bff

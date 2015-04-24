@@ -64,12 +64,19 @@ theApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
 						templateUrl : "pages/quotes/quotes2.html",
 						controller : 'Quotes2Controller'
 					})
-					.state('NEWS', {
+					/*.state('NEWS', {
 						parent: 'HOME',
 						url : "/quotes",
 						displayName: "Quotes",
 						templateUrl : "pages/quotes/news.html",
 						controller : 'NewsController'
+					})*/
+					.state('NEWS', {
+						parent: 'HOME',
+						url : "/news",
+						displayName: "News",
+						templateUrl : "pages/quotes/news.html",
+						controller : 'NewsTickerController'
 					})
 					.state('HISTORY', {
 						parent: 'HOME',

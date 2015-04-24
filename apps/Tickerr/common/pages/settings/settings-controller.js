@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 /**
  * 
  */
+=======
+
+theApp.controller('SettingsController',function($scope, $state) {
+
+});
+
+>>>>>>> 5b635c44bcf8f46232c71290a1349b31e2104bff
 (function() {
 	"use strict";
 	theApp.controller('SettingsController', SettingsController);
@@ -11,17 +19,34 @@
 		this._storageService = storageService;
 		this._$scope = $scope;
 		this._$state = $state;
+<<<<<<< HEAD
 		//this._$scope.SaveSettings = angular.bind(this,this.SaveSettings);	
 		this._$scope.saveSettings = angular.bind(this, this._saveSettings);
+=======
+		
+		this._$scope.saveSettings = angular.bind(this, this._saveSettings);
+		
+>>>>>>> 5b635c44bcf8f46232c71290a1349b31e2104bff
 		this._init();
 	}
 	
 	SettingsController.prototype._init = function () {
+<<<<<<< HEAD
 		this._getSettings();
+=======
+		var settings = {
+				passcode: "true",
+				realtime: "true",
+				backup: "true"
+		};
+		
+		this._$scope.settings = settings;
+>>>>>>> 5b635c44bcf8f46232c71290a1349b31e2104bff
 	};
 	
 	SettingsController.prototype._saveSettings = function () {
 		var self = this;
+<<<<<<< HEAD
 		var mySettings = {
 				RealtimeQuotes: "true",
 			    Passcode: "false",
@@ -53,4 +78,10 @@
 //		this._storageService.setObject('RealtimeQuotes', this._$scope.chkRTQuote.checked);
 //	}
 	
+=======
+
+		alert(this._$scope.settings.realtime);
+	};
+	
+>>>>>>> 5b635c44bcf8f46232c71290a1349b31e2104bff
 })($);
