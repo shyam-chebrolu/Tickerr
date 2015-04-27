@@ -614,7 +614,6 @@ QuoteService.prototype._getQuotes = function(requestParams) {
 	return this._backendService.invokeService(request);
 };
 
-<<<<<<< HEAD
 /**
  * Returns latest figures from Google/Yahoo finance web service.
  *  
@@ -670,7 +669,7 @@ QuoteService.prototype._getQuotes2 = function(requestParams) {
 	
 	return this._backendService.invokeService(request);
 };
-=======
+
 /*
  * Returns News for Ticker Symbol passed
  * 
@@ -687,4 +686,4 @@ QuoteService.prototype.getTickerNews = function(requestParams) {
 	
 	return this._backendService.invokeService(request);
 };
->>>>>>> 5b635c44bcf8f46232c71290a1349b31e2104bff
+

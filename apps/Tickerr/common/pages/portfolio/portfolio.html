@@ -29,11 +29,11 @@
 						<i class="text-small-last-update text-gray" data-ng-bind="symbol.lastUpdated"></i>
 					</div>
 					<div class="col">
-						<i class="padding text-red text-medium-ticker-change" data-ng-bind="symbol.change"></i>
+						<i class="padding text-medium-ticker-change" data-ng-bind="symbol.change" ng-class="symbol.change > 0? 'text-green': 'text-red'"></i>
 					</div>
 					<div class="col-10">
-						<a class="padding" onClick="showTickerDetails()"><img src="images/06_arrow2.gif"
-							class="img-stock-select"></a>
+						<a class="padding"><img src="images/06_arrow2.gif" class="img-stock-select"></a>
+						<button class="button button-calm" ng-model="symbol.name" ng-click="showTickerDetails()"></button>
 					</div>
 				</div>
 			</div>
