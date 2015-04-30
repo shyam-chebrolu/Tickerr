@@ -301,6 +301,11 @@ QuoteService.prototype._getPortfolioSymbolMap = function() {
 			"name":"FB",
 			"country": "us",
             "desc": "Facebook Inc"
+		},
+		"NYSE:BAC": {
+			"name": "BAC",
+			"country": "us",
+            "desc": "Bank Of America"
 		}
 	};
 };
@@ -372,6 +377,72 @@ QuoteService.prototype.getPortfolio = function() {
 	return deferred.promise;
 };
 
+/**
+ * Returns latest figures for Portfolio
+ * 
+ * @returns
+ */
+QuoteService.prototype.getPortfolio3 = function() {
+	var self = this;
+	var deferred = self._$q.defer();
+	
+	//Declare the different categories of indexes
+	var symbolsPortfolio =["NYSE:BAC", "NASDAQ:MSFT", "NASDAQ:GOOG", "NASDAQ:CSCO", "NYSE:MCD"];
+	
+	//Merge them into a single array
+	var allSymbols = symbolsPortfolio;
+	
+	//Invoke the Finance Web service  
+	this._getQuotes(allSymbols).then(function(data) {
+		
+										//Declare result object
+										var result = {
+												"Portfolio3": []
+										};
+										
+										//Check whether service returned any data
+										if (data) {
+											var symbolMap = self._getPortfolioSymbolMap();
+											
+											//Iterate through list of quotes from response data
+											$.each(data, function(index, quote) {
+
+												/**
+												 * Below logic is specific Google Finance Web service.
+												 * If we switch to Yahoo or some other web service, below code block 
+												 * needs to be updated accordingly
+												 * 
+												 */
+												
+												//Prepare the key and look it up in the symbol map 
+												var key = quote["e"] + ":" + quote["t"];
+												var symbol = symbolMap[key];
+												
+												//Clone the symbol object to return 
+												var item = $.extend({}, symbol);
+												
+												//Map price/change/updatedDate from response
+												item = $.extend({
+													"price": quote["l"],
+													"change": quote["c"],
+													"lastUpdated": quote["ltt"]
+												}, item);
+												
+												//Check the key in symbol map and add it to result array
+												if (symbolsPortfolio.indexOf(key) >= 0) {
+													result["Portfolio3"].push(item);
+												} 
+											});
+										}
+										
+										//return the result to caller i.e. controller
+										return deferred.resolve(result);	
+									}, function(error) {
+											console.log("Failed to retrieve Portfolio3, " + error);
+									});
+	
+	return deferred.promise;
+};
 ///**
 // * Returns latest figures for Ticker
 // * 

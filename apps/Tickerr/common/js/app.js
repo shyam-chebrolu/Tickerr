@@ -106,6 +106,13 @@ theApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
 						templateUrl : "pages/test/portfolio2.html",
 						controller : 'Portfolio2Controller'
 					})
+					.state('PORTFOLIO3', {
+						parent: 'HOME',
+						url : "/portfolio3",
+						displayName: "Portfolio3",
+						templateUrl : "pages/portfolio/portfolio3.html",
+						controller : 'Portfolio3Controller'
+					})
 		}]);
  
 theApp.run(['$state', function($state) {
