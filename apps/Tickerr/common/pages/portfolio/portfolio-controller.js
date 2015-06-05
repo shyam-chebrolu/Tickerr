@@ -27,11 +27,12 @@
 		});
 	};
 	
-	PortfolioController.prototype._showTickerDetails = function () {
+	PortfolioController.prototype._showTickerDetails = function (pticker) {
 		var self = this;
-		var ticker = self._$scope.ticker;
-		self._dataStashService.setData(self._$scope.ticker);
-		self._$rootScope.ticker = self._$scope.ticker;
+		//var ticker = self._$scope.ticker;
+		var ticker = pticker;
+		self._dataStashService.setData(ticker);
+		self._$rootScope.ticker = ticker;
 		
 		if (ticker) {
 			self._$state.go("QUOTES", null, {reload:true});	
